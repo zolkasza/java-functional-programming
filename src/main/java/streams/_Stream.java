@@ -24,10 +24,31 @@ public class _Stream {
         );
 
         people.stream()
-                .map(person -> person.name)
-                .mapToInt(String::length)
+                .map(person -> person.gender)
+                .collect(Collectors.toSet())
                 .forEach(System.out::println);
 
+        Function<Person, String> personStringFunction = person -> person.name;
+        ToIntFunction<String> length = String::length;
+        IntConsumer println = System.out::println;
+        people.stream()
+                .map(personStringFunction)
+                .mapToInt(length)
+                .forEach(println);
+
+
+        Predicate<Person> personPredicate = person -> FEMALE.equals(person.gender);
+        boolean containsOnlyFemales = people.stream()
+                .allMatch(personPredicate);
+        System.out.println(containsOnlyFemales);
+
+        boolean containsAnyFemales = people.stream()
+                .anyMatch(personPredicate);
+        System.out.println(containsAnyFemales);
+
+        boolean noFemales = people.stream()
+                .noneMatch(personPredicate);
+        System.out.println(noFemales);
     }
 
     static class Person {
