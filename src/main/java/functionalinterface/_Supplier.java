@@ -7,12 +7,16 @@ public class _Supplier {
 
     public static void main(String[] args) {
         System.out.println(getDBConnectionUrl());
+        System.out.println(getDBConnectionURLSuplier.get());
         System.out.println(getDBConnectionUrlsSupplier.get());
     }
 
     static String getDBConnectionUrl() {
         return "jdbc://localhost:5432/users";
     }
+
+    static Supplier<String> getDBConnectionURLSuplier = () ->
+            "jdbc://localhost:5432/users";
 
     static Supplier<List<String>> getDBConnectionUrlsSupplier = ()
             -> List.of(
