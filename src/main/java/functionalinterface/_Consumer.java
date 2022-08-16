@@ -12,6 +12,7 @@ public class _Consumer {
         greetCustomerV2(maria, false);
 
         // Consumer Functional interface
+        // Consumer olyan mint egy void metódus
         greetCustomerConsumer.accept(maria);
 
         greetCustomerConsumerV2.accept(maria, false);

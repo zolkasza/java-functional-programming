@@ -1,5 +1,6 @@
 package functionalinterface;
 
+import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 public class _Predicate {
@@ -22,9 +23,12 @@ public class _Predicate {
         );
 
         System.out.println(
-                "Is phone number valid and contains number 3 = " +
+                "Is phone number valid or contains number 3 = " +
                         isPhoneNumberValidPredicate.or(containsNumber3).test("07000000000")
         );
+
+        System.out.println("Is text length equals the given number = " +
+                isTextLength.test("almás", 4));
 
     }
 
@@ -37,4 +41,7 @@ public class _Predicate {
 
     static Predicate<String> containsNumber3 = phoneNumber ->
             phoneNumber.contains("3");
+
+    static BiPredicate<String, Integer> isTextLength = (text, length) ->
+            text.length() == length;
 }
