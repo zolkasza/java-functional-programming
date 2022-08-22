@@ -11,7 +11,7 @@ public class Main {
                 "Alice",
                 "alice@gmail.com",
                 "+0898787879878",
-                LocalDate.of(2015, 1,1)
+                LocalDate.of(2000, 1,1)
         );
 
 //        System.out.println(new CustomerValidatorService().isValid(customer));
@@ -23,6 +23,8 @@ public class Main {
                 .and(isPhoneNumberValid())
                 .and(isAnAdult())
                 .apply(customer);
+
+        // Addig nem fut az isPhoneNumberValid és az isAnAdult ameddig nincs a végén az apply.
 
         System.out.println(result);
 

@@ -29,7 +29,8 @@ public interface CustomerRegistrationValidator
                         SUCCESS : IS_NOT_AN_ADULT;
     }
 
-    default CustomerRegistrationValidator and (CustomerRegistrationValidator other) {
+    // Emiatt lehet "and"-del összekombinálni
+    default CustomerRegistrationValidator and(CustomerRegistrationValidator other) {
         return customer -> {
             ValidationResult result = this.apply(customer);
             return result.equals(SUCCESS) ? other.apply(customer) : result;

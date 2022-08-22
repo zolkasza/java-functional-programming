@@ -3,7 +3,7 @@ package combinatorpatttern;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class CustomerValidatorService {
+public class  CustomerValidatorService {
 
     private boolean isEmailValid(String email) {
         return email.contains("@");
